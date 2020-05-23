@@ -1,0 +1,27 @@
+<HTML>
+
+<body>
+<! ––  Fill in the following: Line 11 your Client-ID. Line 12 Oath token. Line 16 user_id. Will create a stream marker on twitch on load of page if steamer is live. Special thanks to the Twitch dev discord esp @Dist @BarryCarlyon @Marenthyu @foodz who helped me learn how to do this. A special special thanks to @BarryCarlyon who helped me set up the code, and was very patient with me.
+––> 
+
+<script>
+fetch('https://api.twitch.tv/helix/streams/markers', {
+    method: 'POST',
+    headers: {
+        'Client-ID': 'Client-ID',
+        'Authorization': 'Bearer Oath token',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        user_id: 'user_id'
+    })
+})
+.then(resp => { return resp.json(); })
+.then(resp => { console.log(resp); })
+.catch(err => { console.log(err) })
+
+</script>
+
+</body>
+
+</HTML>
